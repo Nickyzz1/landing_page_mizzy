@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="KronoCut Studio">
+  <rect width="512" height="512" rx="116" fill="#0B0C0E"/>
+  <rect x="20" y="20" width="472" height="472" rx="96" fill="none" stroke="#E11D48" stroke-width="16" stroke-opacity="0.35"/>
+  <circle cx="144" cy="144" r="28" fill="#E11D48"/>
+  <path d="M210 156L368 256L210 356V156Z" fill="#F4F4F5"/>
+</svg>
