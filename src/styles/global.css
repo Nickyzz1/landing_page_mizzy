@@ -5,36 +5,38 @@
 @layer base {
   :root {
     color-scheme: dark;
+    --spotlight-x: 50%;
+    --spotlight-y: 50%;
   }
 
   html {
     scroll-behavior: smooth;
-    background-color: #0B0C0E;
+    background-color: #07080C;
     color: #F4F4F5;
   }
 
   body {
-    background-color: #0B0C0E;
+    background-color: #07080C;
     color: #F4F4F5;
     overflow-x: hidden;
   }
 
   ::selection {
-    background-color: rgba(225, 29, 72, 0.35);
+    background-color: rgba(99, 102, 241, 0.4);
     color: #ffffff;
   }
 }
 
 @layer utilities {
   .container-vao {
-    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-10;
+    @apply mx-auto w-full max-w-[1440px] px-4 sm:px-8 lg:px-12;
   }
 
   .bg-grid-pattern {
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-    background-size: 64px 64px;
+      linear-gradient(to right, rgba(99, 102, 241, 0.07) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(99, 102, 241, 0.07) 1px, transparent 1px);
+    background-size: 56px 56px;
   }
 
   .mask-radial-top {
@@ -47,3 +49,27 @@
     -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 25%, transparent 100%);
   }
 }
+.spotlight-card {
+  position: relative;
+}
+
+.spotlight-card::before {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(
+    480px circle at var(--spotlight-x) var(--spotlight-y),
+    rgba(99, 102, 241, 0.22),
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+

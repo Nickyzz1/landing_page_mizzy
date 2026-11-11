@@ -1,33 +1,35 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+﻿export default {
+  content: ['./src*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
       colors: {
-        background: '#0B0C0E',
+        background: '#07080C',
         surface: {
-          DEFAULT: '#121418',
-          muted: '#181B20',
-          elevated: '#1E2229',
+          DEFAULT: '#0D0F17',
+          muted: '#121522',
+          elevated: '#171B2B',
         },
         border: {
           DEFAULT: 'rgba(255, 255, 255, 0.08)',
-          strong: 'rgba(255, 255, 255, 0.16)',
+          strong: 'rgba(99, 102, 241, 0.25)',
         },
         accent: {
-          DEFAULT: '#E11D48', // Crimson / REC Red
-          hover: '#F43F5E',
-          muted: 'rgba(225, 29, 72, 0.14)',
-          amber: '#F59E0B',
+          DEFAULT: '#6366F1',
+          hover: '#4F46E5',
+          light: '#818CF8',
+          purple: '#7C3AED',
+          cyan: '#38BDF8',
+          emerald: '#10B981',
+          muted: 'rgba(99, 102, 241, 0.16)',
         },
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Syne', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       borderRadius: {
-        card: '1rem',
+        card: '1.25rem',
       },
       keyframes: {
         marquee: {
@@ -47,3 +49,4 @@ export default {
   },
   plugins: [],
 };
+
