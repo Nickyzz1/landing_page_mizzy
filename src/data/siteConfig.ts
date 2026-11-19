@@ -2,19 +2,19 @@
   brand: {
     name: 'MIZZY',
     subtitle: 'Edição & Pós-Produção de Vídeo',
-    editorName: 'Carlos Mizete (Mizzy)',
-    legalName: 'Carlos Mizete',
-    cnpj: '69.914.747/0001-51',
-    location: 'São Gabriel da Palha - ES · Atendimento Remoto no Brasil & Exterior',
-    postalCode: '29780-000',
+    editorName: 'Mizzy',
+    legalName: 'Mizzy Studio Audiovisual MEI',
+    cnpj: '12.345.678/0001-90',
+    location: 'Curitiba - PR · Atendimento Remoto no Brasil & Exterior',
+    postalCode: '80000-000',
     tagline: 'Criando histórias visuais impactantes por meio da edição de vídeo.',
   },
   contact: {
-    whatsappNumber: '5527998001251',
-    whatsappDisplay: '+55 (27) 99800-1251',
+    whatsappNumber: '5541997744814',
+    whatsappDisplay: '+55 (41) 99774-4814',
     whatsappDefaultMessage:
-      'Olá Carlos! Vi seu estúdio MIZZY e gostaria de solicitar uma amostra grátis de edição / conversar sobre um projeto.',
-    email: 'calorsmizete@gmail.com',
+      'Olá! Vi o estúdio MIZZY e gostaria de solicitar uma amostra grátis de edição / conversar sobre um projeto.',
+    email: 'contato@mizzystudio.com',
   },
   navigation: [
     { label: 'O Que Faço', href: '#engenharia' },
