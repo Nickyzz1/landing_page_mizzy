@@ -1,0 +1,35 @@
+---
+import { company, navigationLinks } from '../data/niatronConfig';
+---
+
+<footer class="bg-[#070B13] border-t border-slate-800/80 py-10 text-[14px] text-slate-400">
+  <div class="max-w-5xl mx-auto px-6 sm:px-10 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+      <div class="w-7 h-7 rounded bg-[#FF5E1E] flex items-center justify-center text-white font-bold text-sm shadow-sm">
+        N
+      </div>
+      <div>
+        <span class="font-semibold text-white tracking-wide">NIATRON</span>
+        <span class="text-slate-500 mx-2 hidden sm:inline">•</span>
+        <span class="text-slate-400 block sm:inline">{company.tagline}</span>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-6 text-[13px] text-slate-400">
+      {navigationLinks.map((link) => (
+        <a href={link.href} class="hover:text-white transition-colors">
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-6 sm:px-10 mt-8 pt-6 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] text-slate-500 text-center sm:text-left">
+    <div>
+      {company.address.city} - {company.address.state} • {company.phone} • {company.email}
+    </div>
+    <div>
+      © {company.foundedYear} - {new Date().getFullYear()} {company.corporateName}
+    </div>
+  </div>
+</footer>

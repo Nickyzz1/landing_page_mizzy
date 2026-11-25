@@ -2,74 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    color-scheme: dark;
-    --spotlight-x: 50%;
-    --spotlight-y: 50%;
-  }
+html {
+  scroll-padding-top: 84px;
+}
 
-  html {
-    scroll-behavior: smooth;
-    background-color: #07080C;
-    color: #F4F4F5;
-  }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #0B101B;
+  color: #F8FAFC;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
 
-  body {
-    background-color: #07080C;
-    color: #F4F4F5;
-    overflow-x: hidden;
-  }
+.font-mono-spec {
+  font-family: 'JetBrains Mono', monospace;
+}
 
-  ::selection {
-    background-color: rgba(99, 102, 241, 0.4);
-    color: #ffffff;
+.text-balance {
+  text-wrap: balance;
+}
+
+.tech-grid-bg {
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(11, 16, 27, 0) 0%, #0B101B 100%);
+  background-size: 32px 32px, 100% 100%;
+}
+
+.perspective-stage {
+  perspective: 1500px;
+  perspective-origin: 50% 50%;
+}
+
+.hardware-assembly {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.hw-layer {
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.pcb-surface {
+  background: linear-gradient(145deg, #111A2E 0%, #0A0F1C 100%);
+  box-shadow: 
+    0 30px 60px -15px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+}
+
+.chassis-hood {
+  background: linear-gradient(135deg, #192338 0%, #0F172A 100%);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.18);
+}
+
+.wing-module {
+  background: linear-gradient(145deg, #151F33 0%, #0E1525 100%);
+  box-shadow: 
+    0 24px 48px -12px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.component-card-light {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.component-card-light:hover {
+  border-color: #FF5E1E;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -8px rgba(15, 23, 42, 0.08);
+}
+
+@keyframes arrowFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(6px);
   }
 }
 
-@layer utilities {
-  .container-vao {
-    @apply mx-auto w-full max-w-[1440px] px-4 sm:px-8 lg:px-12;
-  }
-
-  .bg-grid-pattern {
-    background-image:
-      linear-gradient(to right, rgba(99, 102, 241, 0.07) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(99, 102, 241, 0.07) 1px, transparent 1px);
-    background-size: 56px 56px;
-  }
-
-  .mask-radial-top {
-    mask-image: radial-gradient(ellipse 80% 65% at 50% 0%, black 30%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 80% 65% at 50% 0%, black 30%, transparent 100%);
-  }
-
-  .mask-radial-center {
-    mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 25%, transparent 100%);
-    -webkit-mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 25%, transparent 100%);
-  }
+.scroll-arrow-float {
+  animation: arrowFloat 1.8s ease-in-out infinite;
 }
-.spotlight-card {
+
+.step-card {
   position: relative;
+  background: rgba(17, 24, 39, 0.72);
+  border: 1px solid rgba(51, 65, 85, 0.65);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
+  will-change: transform, opacity;
 }
 
-.spotlight-card::before {
-  content: '';
-  pointer-events: none;
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: radial-gradient(
-    480px circle at var(--spotlight-x) var(--spotlight-y),
-    rgba(99, 102, 241, 0.22),
-    transparent 50%
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
+.step-card.active {
+  border-color: #FF5E1E;
+  background: rgba(22, 32, 51, 0.95);
+  box-shadow: 0 10px 30px -10px rgba(255, 94, 30, 0.3);
 }
 
-.spotlight-card:hover::before {
-  opacity: 1;
+.cat-chip.active {
+  background-color: #FF5E1E;
+  border-color: #FF5E1E;
+  color: #FFFFFF;
 }
-

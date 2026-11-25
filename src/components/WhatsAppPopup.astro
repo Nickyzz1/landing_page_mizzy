@@ -1,0 +1,63 @@
+---
+import { company } from '../data/niatronConfig';
+const encodedDefault = encodeURIComponent(company.whatsappMessage);
+---
+
+<div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2.5">
+  <div id="wa-popup" class="hidden w-72 rounded-xl bg-[#131C2E] border border-slate-700 shadow-2xl p-4 text-left">
+    <div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-slate-800">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span class="text-[13px] font-semibold text-white">Atendimento Niatron</span>
+      </div>
+      <button
+        type="button"
+        id="wa-close-btn"
+        class="text-slate-400 hover:text-white text-sm leading-none px-1"
+        aria-label="Fechar popup WhatsApp"
+      >
+        ✕
+      </button>
+    </div>
+    <p class="text-[13px] text-slate-300 leading-relaxed mb-3">
+      Olá! Precisa de mais informações sobre nossos equipamentos ou projetos sob medida?
+    </p>
+    <a
+      href={`https://wa.me/${company.whatsapp}?text=${encodedDefault}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-[13px] transition-colors"
+    >
+      <span>Iniciar conversa no WhatsApp</span>
+    </a>
+  </div>
+
+  <button
+    type="button"
+    id="wa-toggle-btn"
+    aria-label="Abrir WhatsApp Niatron"
+    class="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white shadow-xl flex items-center justify-center transition-transform hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-[#0B101B]"
+  >
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12.031 2c-5.516 0-9.969 4.453-9.969 9.969 0 1.766.453 3.484 1.313 5l-1.375 5.031 5.156-1.359c1.469.797 3.125 1.219 4.875 1.219 5.516 0 9.969-4.453 9.969-9.969S17.547 2 12.031 2zm5.813 14.125c-.25.703-1.438 1.344-2 1.422-.516.078-1.156.109-1.875-.109-.438-.141-.984-.328-1.688-.641-2.969-1.281-4.906-4.266-5.047-4.453-.141-.203-1.203-1.609-1.203-3.063 0-1.453.75-2.172 1.031-2.469.266-.297.594-.375.797-.375l.563.016c.188 0 .422-.078.656.5.25.594.844 2.047.922 2.203.078.141.125.313.016.516-.094.203-.141.328-.297.5-.141.172-.313.391-.438.516-.156.156-.313.313-.125.625.172.313.766 1.266 1.656 2.047 1.141 1.016 2.094 1.328 2.391 1.484.297.141.469.125.641-.078.172-.203.75-.875.953-1.172.203-.297.406-.25.672-.141.281.094 1.734.813 2.031.969.297.141.484.219.563.344.078.125.078.734-.172 1.438z"/>
+    </svg>
+  </button>
+</div>
+
+<script>
+  const toggleBtn = document.getElementById('wa-toggle-btn');
+  const closeBtn = document.getElementById('wa-close-btn');
+  const popup = document.getElementById('wa-popup');
+
+  if (toggleBtn && popup) {
+    toggleBtn.addEventListener('click', () => {
+      popup.classList.toggle('hidden');
+    });
+  }
+
+  if (closeBtn && popup) {
+    closeBtn.addEventListener('click', () => {
+      popup.classList.add('hidden');
+    });
+  }
+</script>

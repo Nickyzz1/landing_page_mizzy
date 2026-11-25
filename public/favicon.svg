@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" role="img" aria-label="MIZZY">
-  <rect width="28" height="28" rx="7" fill="#0D0F17" stroke="#6366F1" stroke-width="1.5" stroke-opacity="0.5"/>
-  <path d="M5 20.5V7.5L10.8 14.5L14 10.5" fill="none" stroke="#F4F4F5" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M15.5 8.8L23 14L15.5 19.2V8.8Z" fill="#818CF8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Niatron">
+  <rect width="32" height="32" rx="8" fill="#0B101B"/>
+  <rect x="1" y="1" width="30" height="30" rx="7" fill="none" stroke="#FF5E1E" stroke-width="1.5" stroke-opacity="0.4"/>
+  <path d="M9 23V9L18.5 20.2V9H23V23H18.5L9 11.8V23Z" fill="#FF5E1E"/>
 </svg>

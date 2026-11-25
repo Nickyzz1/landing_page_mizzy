@@ -1,6 +1,6 @@
 ﻿---
 import '../styles/global.css';
-import { siteConfig } from '../data/siteConfig';
+import { siteMeta } from '../data/niatronConfig';
 
 interface Props {
   title?: string;
@@ -8,68 +8,32 @@ interface Props {
 }
 
 const {
-  title = `${siteConfig.brand.name} — ${siteConfig.brand.subtitle}`,
-  description = siteConfig.hero.description,
+  title = siteMeta.title,
+  description = siteMeta.description,
 } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="pt-BR" class="dark">
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#07080C" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
+    <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@600;700&display=swap"
       rel="stylesheet"
     />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={siteMeta.locale} />
   </head>
-  <body class="flex min-h-svh flex-col bg-background font-sans text-zinc-100 antialiased selection:bg-accent/40 selection:text-white">
-    <div
-      id="scroll-progress"
-      aria-hidden="true"
-      class="fixed inset-x-0 top-0 z-[70] h-[3px] origin-left scale-x-0 bg-gradient-to-r from-accent via-accent-purple to-accent-cyan transition-transform duration-75"
-    >
-    </div>
-
-    <a
-      href="#conteudo"
-      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white"
-    >
-      Pular para o conteúdo
-    </a>
-
+  <body class="bg-[#0B101B] text-[#F8FAFC] antialiased selection:bg-[#FF5E1E] selection:text-white">
     <slot />
-
-    <script>
-      const progressBar = document.getElementById('scroll-progress');
-      const updateScrollProgress = () => {
-        if (!progressBar) return;
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = docHeight > 0 ? Math.min(scrollTop / docHeight, 1) : 0;
-        progressBar.style.transform = `scaleX(${progress})`;
-      };
-      window.addEventListener('scroll', updateScrollProgress, { passive: true });
-      updateScrollProgress();
-
-      const cards = document.querySelectorAll<HTMLElement>('.spotlight-card');
-      cards.forEach((card) => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          card.style.setProperty('--spotlight-x', `${x}px`);
-          card.style.setProperty('--spotlight-y', `${y}px`);
-        });
-      });
-    </script>
   </body>
 </html>
-
